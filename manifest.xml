@@ -28,7 +28,7 @@
   <FormSettings>
     <Form xsi:type="ItemCompose">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://your-company-domain.com/outlook-addin/taskpane.html"/>
+        <SourceLocation DefaultValue="https://hughbryan.github.io/Multi-Send/"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -88,8 +88,8 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://your-company-domain.com/outlook-addin/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://your-company-domain.com/outlook-addin/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://[USERNAME].github.io/[REPO-NAME]/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://[USERNAME].github.io/[REPO-NAME]/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Email Duplicator"/>
