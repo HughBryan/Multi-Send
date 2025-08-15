@@ -28,7 +28,7 @@
   <FormSettings>
     <Form xsi:type="ItemCompose">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://hughbryan.github.io/Multi-Send/"/>
+        <SourceLocation DefaultValue="https://hughbryan.github.io/Multi-Send/taskpane.html"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
