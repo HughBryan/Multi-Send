@@ -1,103 +1,94 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
-           xsi:type="MailApp">
-  
-  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/mailappversionoverrides/1.1">
+
+  <Id>b8f3e4d2-c1a9-4567-890f-123456789abc</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>YourCompanyName</ProviderName>
+  <ProviderName>Hugh Bryan</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
+
   <DisplayName DefaultValue="Email Duplicator"/>
   <Description DefaultValue="Create duplicate emails with personalized names"/>
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-  <SupportUrl DefaultValue="https://localhost:3000/support"/>
-  
+
+  <IconUrl DefaultValue="https://hughbryan.github.io/Multi-Send/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://hughbryan.github.io/Multi-Send/assets/icon-32.png"/>
+  <SupportUrl DefaultValue="https://hughbryan.github.io/Multi-Send"/>
+
+  <AppDomains>
+    <AppDomain>https://hughbryan.github.io</AppDomain>
+  </AppDomains>
+
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
-  
+
   <Requirements>
     <Sets>
       <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
-  
-  <FormSettings>
-    <Form xsi:type="ItemCompose">
-      <DesktopSettings>
-        <SourceLocation DefaultValue="https://hughbryan.github.io/Multi-Send/taskpane.html"/>
-        <RequestedHeight>450</RequestedHeight>
-      </DesktopSettings>
-    </Form>
-  </FormSettings>
-  
-  <Permissions>ReadWriteItem</Permissions>
-  
-  <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Compose"/>
-  </Rule>
-  
-  <DisableEntityHighlighting>false</DisableEntityHighlighting>
-  
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.3">
-        <bt:Set Name="Mailbox"/>
-      </bt:Sets>
-    </Requirements>
-    
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url"/>
-          
-          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="msgComposeGroup">
-                <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="msgComposeOpenPaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
-                  <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    
-    <Resources>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://hughbryan.github.io/Multi-Send/taskpane.html"/>
+  </DefaultSettings>
+
+  <VersionOverrides xsi:type="ov:VersionOverrides" Version="1.1">
+    <ov:Hosts>
+      <ov:Host xsi:type="ov:MailHost">
+        <ov:DesktopFormFactor>
+          <!-- Point to commands.html instead of functions.html -->
+          <ov:FunctionFile resid="residFunctionFileUrl"/>
+          <ov:ExtensionPoint xsi:type="ov:MessageComposeCommandSurface">
+            <ov:OfficeTab id="TabDefault">
+              <ov:Group id="msgComposeGroup">
+                <ov:Label resid="residGroupLabel"/>
+                <ov:Control xsi:type="ov:Button" id="msgComposeOpenPane">
+                  <ov:Label resid="residButtonLabel"/>
+                  <ov:Supertip>
+                    <ov:Title resid="residButtonLabel"/>
+                    <ov:Description resid="residButtonDesc"/>
+                  </ov:Supertip>
+                  <ov:Icon>
+                    <ov:IconSize16 resid="icon16"/>
+                    <ov:IconSize32 resid="icon32"/>
+                    <ov:IconSize80 resid="icon80"/>
+                  </ov:Icon>
+                  <ov:Action xsi:type="ov:ShowTaskpane">
+                    <ov:TaskpaneId>ButtonId1</ov:TaskpaneId>
+                    <ov:SourceLocation resid="residTaskpaneUrl"/>
+                  </ov:Action>
+                </ov:Control>
+              </ov:Group>
+            </ov:OfficeTab>
+          </ov:ExtensionPoint>
+        </ov:DesktopFormFactor>
+      </ov:Host>
+    </ov:Hosts>
+
+    <ov:Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="icon16" DefaultValue="https://hughbryan.github.io/Multi-Send/assets/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://hughbryan.github.io/Multi-Send/assets/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://hughbryan.github.io/Multi-Send/assets/icon-80.png"/>
       </bt:Images>
+
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://[USERNAME].github.io/[REPO-NAME]/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://[USERNAME].github.io/[REPO-NAME]/taskpane.html"/>
+        <!-- Updated to commands.html -->
+        <bt:Url id="residFunctionFileUrl" DefaultValue="https://hughbryan.github.io/Multi-Send/commands.html"/>
+        <bt:Url id="residTaskpaneUrl" DefaultValue="https://hughbryan.github.io/Multi-Send/taskpane.html"/>
       </bt:Urls>
+
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Email Duplicator"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Open Duplicator"/>
+        <bt:String id="residGroupLabel" DefaultValue="Email Duplicator"/>
+        <bt:String id="residButtonLabel" DefaultValue="Open Duplicator"/>
       </bt:ShortStrings>
+
       <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Create duplicate emails with different names"/>
+        <bt:String id="residButtonDesc" DefaultValue="Open the task pane to duplicate emails and personalize names."/>
       </bt:LongStrings>
-    </Resources>
+    </ov:Resources>
   </VersionOverrides>
 </OfficeApp>
