@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Email Duplicator</title>
+    
+    <!-- Office.js -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="taskpane.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="header">Email Duplicator</h3>
+        
+        <div class="section">
+            <label class="label" for="placeholder">Name Placeholder:</label>
+            <div class="placeholder-section">
+                <input type="text" id="placeholder" class="text-input placeholder-input" value="{{name}}" />
+                <button class="detect-btn" onclick="detectPlaceholder()">Auto-detect</button>
+            </div>
+            <div class="help-text">Text in your email that will be replaced with each person's name</div>
+        </div>
+        
+        <div class="section">
+            <label class="label">Recipients & Names:</label>
+            
+            <!-- Quick paste area for bulk import -->
+            <div class="paste-area-section">
+                <textarea id="pasteArea" class="paste-area" placeholder="Quick paste: Copy emails from Excel and paste here (Ctrl+V), then click outside"></textarea>
+                <div class="paste-help">Paste multiple emails here, then click outside this box to auto-populate rows below</div>
+            </div>
+            
+            <div class="email-list" id="emailList">
+                <!-- Email rows will be added here -->
+            </div>
+            <button class="add-email-btn" onclick="addRecipient()">+ Add Recipient</button>
+            <div class="count-text" id="countText">0 recipients</div>
+            <div class="help-text">Enter email addresses and names, or use the paste area above for bulk import</div>
+            <div class="paste-hint" id="pasteHint">
+                Detected paste data! Processing emails...
+            </div>
+        </div>
+        
+        <button class="generate-btn" id="generateBtn" onclick="generateEmails()">Generate Personalized Emails</button>
+        
+        <div class="progress" id="progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Processing...</div>
+        </div>
+        
+        <div class="status" id="status"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="taskpane.js"></script>
+</body>
+</html>
